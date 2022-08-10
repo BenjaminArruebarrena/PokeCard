@@ -1,6 +1,10 @@
 const express = require('express');
+const coneçaoDB = require('./db.connection');
 const app = express();
 const routerCards = require('./routes/cards.routes')
+
+//Coneçao na DB
+coneçaoDB ();
 
 //settings
 app.set("name", "PockeCards")

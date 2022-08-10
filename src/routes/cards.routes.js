@@ -4,6 +4,8 @@ const routerCards = Router();
 
 routerCards.get('/', ctrCard.obter);
 
+routerCards.get('/:id', ctrCard.getOne)
+
 routerCards.post('/', ctrCard.agregar);
 
 routerCards.put('/id', ctrCard.atualizar);
