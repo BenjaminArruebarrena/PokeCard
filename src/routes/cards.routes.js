@@ -1,13 +1,13 @@
 const { Router } = require("express");
-const { router } = require("../app");
+const ctrCard = require('../controllers/cards.controllers');
 const routerCards = Router();
 
-routerCards.get('/', (req, res) => {
-    res.send('Bemvindos a mi API')
-})
+routerCards.get('/', ctrCard.obter);
 
-routerCards.get('/cards/:id', (req, res) => {
-    res.send()
-})
+routerCards.post('/', ctrCard.agregar);
+
+routerCards.put('/id', ctrCard.atualizar);
+
+routerCards.delete('/id', ctrCard.eliminar)
 
 module.exports = routerCards;
