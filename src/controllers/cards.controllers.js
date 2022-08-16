@@ -1,24 +1,21 @@
 const Cards = require('../Models/cards');
 
 exports.obterList = async (req, res) => {
-  
-    const cards = await Cards.find();
+    const cards = await Cards.find(Cards);
     res.status(200).json(cards);
-  
 };
 
 exports.getOne = async (req, res) => {
     const id = req.params.id;
     const obtenido = await Cards.findById(id)
-    res.status(200).send(req.body)
+    res.status(200).send(obtenido)
 }
-exports.agregar = async (req, res) => {
 
+exports.agregar = async (req, res) => {
     const { card_id, type_card, name, hp, attack, defense,  speed, energy, total_power } = req.body;
     const novaCarta = new Cards ({card_id, type_card, name, hp, attack, defense,  speed, energy, total_power });
     await novaCarta.save();
         res.status(201).send( novaCarta )
-   
 }
 
 exports.atualizar = async (req, res) =>{

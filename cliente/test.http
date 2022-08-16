@@ -1,23 +1,23 @@
 ###
-GET http://localhost:3500/api/cards/62fadcac605a8e6a2db7e35e
+GET http://localhost:3500/cards/
 
 
 
 
 ###
-POST http://localhost:3500/api/cards/
+POST http://localhost:3500/cards/
 Content-Type: application/json
 
 {
     "card_id":"6", 
-    "type_card":"Azul", 
-    "name":"Pidgeotto", 
-    "hp":"47",
-    "attack":"52",
-    "defense":"66", 
-    "speed":"83",
-    "energy":"48",
-    "total_power":"296"
+    "type_card":"Amarelo", 
+    "name":"Pikachu", 
+    "hp":"69",
+    "attack":"91",
+    "defense":"55", 
+    "speed":"96",
+    "energy":"99",
+    "total_power":"410"
 }
 
 ###

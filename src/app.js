@@ -15,13 +15,14 @@ app.set("port", process.env.port || 3500 );
 app.use(express.json())
 
 //chamando rotas
-
+app.get('/', (req, res)=> {
+    res.send("Bemvindos a PockeCards")
+})
 
 app.get('*', (req, res) => {
     res.status(404).send('O site não existe');
 })
 
-
-app.use('/api/cards', routerCards )
+app.use("/cards", routerCards )
 
 module.exports = app;
