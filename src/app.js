@@ -1,6 +1,7 @@
 const express = require('express');
 const coneçaoDB = require('./db.connection');
 const app = express();
+const card = require('./controllers/cards.controllers')
 const routerCards = require('./routes/cards.routes')
 
 //Coneçao na DB
@@ -19,6 +20,9 @@ app.get('/', (req, res) => {
     res.send('Bemvindos a mi API')
 })
 
+app.get('*', (req, res) => {
+    res.status(404).send('O site não existe');
+})
 
 
 app.use('/api/cards', routerCards )
