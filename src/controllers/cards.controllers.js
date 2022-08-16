@@ -1,29 +1,42 @@
-const Cards = require('../Models/Cards');
+const Cards = require('../Models/cards');
 
-exports.obterlist = async (req, res) => {
+exports.obterList = async (req, res) => {
   
-        const cards = await Cards.find()
-        console.log("todos os pokemones");
-        res.status(200).send('tudos os pokemons sao:')
+    const cards = await Cards.find();
+    res.status(200).json(cards);
   
 };
 
 exports.getOne = async (req, res) => {
-    res.status(200).send(req.params)
+    const id = req.params.id;
+    const obtenido = await Cards.findById(id)
+    res.status(200).send(req.body)
 }
 exports.agregar = async (req, res) => {
 
     const { card_id, type_card, name, hp, attack, defense,  speed, energy, total_power } = req.body;
     const novaCarta = new Cards ({card_id, type_card, name, hp, attack, defense,  speed, energy, total_power });
     await novaCarta.save();
-        res.status(201).send('dados recevedos')
+        res.status(201).send( novaCarta )
    
 }
 
 exports.atualizar = async (req, res) =>{
-    res.status(204).sen('Card actualizado')
+    const id = req.params.id;
+    const data = req.body;
+    if (id && data) {
+         await Cards.findByIdAndUpdate(id, data)
+    res.status(201).send('Card actualizado')
+    } else {
+        res.json({msj: "dados incompletos"})
+        
+    }
+   
 }
 
 exports.eliminar = async (req, res) => {
-    res.status(204).send('Card eliminada')
+    const id = req.params.id;
+    const eliminado = await Cards.findByIdAndDelete(id);
+    res.status(200).json({ msj: 'Card eliminada', isOk: true })
+    
 }

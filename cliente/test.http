@@ -1,19 +1,33 @@
 ###
-GET   http://localhost:3500/api/cards/62fadc35605a8e6a2db7e35c
+GET http://localhost:3500/api/cards/62fadcac605a8e6a2db7e35e
+
+
 
 
 ###
-POST http://localhost:3500/api/cards
+POST http://localhost:3500/api/cards/
 Content-Type: application/json
 
 {
-    "card_id":"4", 
-    "type_card":"Amarelo", 
-    "name":"Weedle", 
-    "hp":"67",
-    "attack":"56",
-    "defense":"76", 
-    "speed":"97",
-    "energy":"82",
-    "total_power":"378"
+    "card_id":"6", 
+    "type_card":"Azul", 
+    "name":"Pidgeotto", 
+    "hp":"47",
+    "attack":"52",
+    "defense":"66", 
+    "speed":"83",
+    "energy":"48",
+    "total_power":"296"
 }
+
+###
+PUT http://localhost:3500/api/cards/62fadcac605a8e6a2db7e35e
+Content-Type: application/json
+
+{
+    "name": "Charmandel"
+}
+
+###
+DELETE http://localhost:3500/api/cards/62fc08d05f357cf7661825ce
+

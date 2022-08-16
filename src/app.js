@@ -16,9 +16,6 @@ app.use(express.json())
 
 //chamando rotas
 
-app.get('/', (req, res) => {
-    res.send('Bemvindos a mi API')
-})
 
 app.get('*', (req, res) => {
     res.status(404).send('O site não existe');
